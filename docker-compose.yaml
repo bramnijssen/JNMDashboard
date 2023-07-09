@@ -1,0 +1,50 @@
+services:
+  nginx:
+    image: nginx:1.25-alpine
+    depends_on:
+      - php
+    ports:
+      - "${APP_PORT:-80}:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf
+
+  php:
+    build:
+      context: ./docker
+      target: ${APP_ENV:-production}
+    environment:
+      XDEBUG_MODE: "${XDEBUG_MODE:-off}"
+      XDEBUG_CONFIG: client_host=host.docker.internal
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    user: 1000:1000
+    volumes:
+      - .:/var/www/html
+
+  pgsql:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${FORWARD_DB_PORT:-5432}:5432"
+    volumes:
+      - jnm-dashboard-db:/var/lib/postgresql/data
+
+  node:
+    image: node:18-alpine
+    ports:
+      - "5173:5173"
+    user: 1000:1000
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+
+networks:
+  default:
+    name: jnm-dashboard
+
+volumes:
+  jnm-dashboard-db:

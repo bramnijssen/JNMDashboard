@@ -1,0 +1,66 @@
+[
+  {
+    "desc": "bewolkt",
+    "icon": "wi-cloud"
+  },
+  {
+    "desc": "bliksem",
+    "icon": "wi-thunderstorm"
+  },
+  {
+    "desc": "buien",
+    "icon": "wi-showers"
+  },
+  {
+    "desc": "hagel",
+    "icon": "wi-hail"
+  },
+  {
+    "desc": "halfbewolkt",
+    "icon": "wi-day-cloudy"
+  },
+  {
+    "desc": "halfbewolkt_regen",
+    "icon": "wi-day-showers"
+  },
+  {
+    "desc": "helderenacht",
+    "icon": "wi-night-clear"
+  },
+  {
+    "desc": "lichtbewolkt",
+    "icon": "wi-day-cloudy"
+  },
+  {
+    "desc": "mist",
+    "icon": "wi-day-fog"
+  },
+  {
+    "desc": "nachtmist",
+    "icon": "wi-night-fog"
+  },
+  {
+    "desc": "regen",
+    "icon": "wi-rain"
+  },
+  {
+    "desc": "sneeuw",
+    "icon": "wi-snow"
+  },
+  {
+    "desc": "wolkennacht",
+    "icon": "wi-night-alt-cloudy"
+  },
+  {
+    "desc": "nachtbewolkt",
+    "icon": "wi-night-alt-cloudy"
+  },
+  {
+    "desc": "zonnig",
+    "icon": "wi-day-sunny"
+  },
+  {
+    "desc": "zwaarbewolkt",
+    "icon": "wi-cloudy"
+  }    
+]

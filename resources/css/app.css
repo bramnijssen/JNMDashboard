@@ -1,0 +1,12 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import './weather-icons.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'AmericanTypewriter-Medium-Bold';
+  src: url('./fonts/AmericanTypewriter-Medium-Bold.woff2') format('woff2'),
+    url('./fonts/AmericanTypewriter-Medium-Bold.woff') format('woff');
+}
