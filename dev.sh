@@ -13,6 +13,9 @@ if [ ! -f $ENV_FILE ]; then
 
   echo ">>> Generating app key"
   docker compose exec php php artisan key:generate
+
+  echo "SET THE VARIABLES IN .ENV, RESTART DOCKER COMPOSE AND RUN THIS SCRIPT AGAIN"
+  exit
 fi
 
 echo ">>> Migrating database"
