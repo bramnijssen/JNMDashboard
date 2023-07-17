@@ -5,7 +5,7 @@ import { Head } from "@inertiajs/vue3";
 
 <template>
     <AuthenticatedLayout>
-        <Head title="Activiteiten" />
+        <Head title="Activiteit" />
 
         <p>Activiteiten</p>
     </AuthenticatedLayout>
