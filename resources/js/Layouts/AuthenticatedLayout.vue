@@ -12,11 +12,11 @@ import AuthHeader from "@/Components/AuthHeader.vue";
             <!-- Navigation Menu -->
             <aside class="bg-blue-300">
                 <nav class="flex flex-col">
-                    <BreezeNavLink :href="route('activities')" :active="route().current('activities')">
+                    <BreezeNavLink :href="route('activities.index')" :active="route().current('activities.*')">
                         <i class="fa-solid fa-calendar-days mr-3"></i>
                         Activiteiten
                     </BreezeNavLink>
-                    <BreezeNavLink :href="route('links')" :active="route().current('links')">
+                    <BreezeNavLink :href="route('links')" :active="route().current('links.*')">
                         <i class="fa-solid fa-arrow-up-right-from-square mr-3"></i>
                         Links
                     </BreezeNavLink>
@@ -24,8 +24,8 @@ import AuthHeader from "@/Components/AuthHeader.vue";
             </aside>
 
             <!-- Page Content -->
-            <main class="flex-auto overflow-y-auto">
-                <div class="m-4">
+            <main class="flex-auto overflow-y-auto bg-gray-100">
+                <div class="m-6 p-6 rounded-lg border border-gray-500 bg-white">
                     <slot />
                 </div>
             </main>
