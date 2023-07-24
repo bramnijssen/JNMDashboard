@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class ActivityController extends Controller
@@ -13,7 +14,9 @@ class ActivityController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Activities/Index');
+        return Inertia::render('Activities/Index', [
+            'activities' => Activity::all(),
+        ]);
     }
 
     /**
@@ -71,6 +74,7 @@ class ActivityController extends Controller
      */
     public function destroy(Activity $activity)
     {
-        //
+        $activity->delete();
+        Storage::disk('public')->delete("posters/{$activity->id}.pdf");
     }
 }
