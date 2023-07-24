@@ -50,7 +50,7 @@ function submit() {
                     />
                 </div>
 
-                <div v-if="form.poster" class="flex-auto">
+                <div v-if="form.poster" class="flex-1">
                     <object :data="posterObject" class="h-full w-full" type="application/pdf"></object>
                 </div>
             </div>

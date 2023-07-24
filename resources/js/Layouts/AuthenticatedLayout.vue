@@ -8,9 +8,9 @@ import AuthHeader from "@/Components/AuthHeader.vue";
         <AuthHeader />
 
         <!-- Forcing min-h-0. Flex default is min-h-auto which messes with set height -->
-        <div class="flex-auto flex min-h-0">
+        <div class="flex-1 flex min-h-0">
             <!-- Navigation Menu -->
-            <aside class="bg-blue-300">
+            <aside class="flex-none bg-blue-300">
                 <nav class="flex flex-col">
                     <BreezeNavLink :href="route('activities.index')" :active="route().current('activities.*')">
                         <i class="fa-solid fa-calendar-days mr-3"></i>
@@ -24,7 +24,7 @@ import AuthHeader from "@/Components/AuthHeader.vue";
             </aside>
 
             <!-- Page Content -->
-            <main class="flex-auto overflow-y-auto bg-gray-100">
+            <main class="flex-1 overflow-y-auto bg-gray-100">
                 <div class="m-6 p-6 rounded-lg border border-gray-500 bg-white">
                     <slot />
                 </div>
