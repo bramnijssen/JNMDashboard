@@ -77,4 +77,10 @@ class ActivityController extends Controller
         $activity->delete();
         Storage::disk('public')->delete("posters/{$activity->id}.pdf");
     }
+
+    public function getCurrentActivities()
+    {
+        $now = date('Y-m-d');
+        return response()->json(Activity::whereDate('from', '<=', $now)->whereDate('until', '>=', $now)->get());
+    }
 }
