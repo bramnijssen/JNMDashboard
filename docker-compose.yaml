@@ -21,6 +21,7 @@ services:
     user: 1000:1000
     volumes:
       - .:/var/www/html
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/jnm-dashboard.ini
 
   pgsql:
     image: postgres:15-alpine
