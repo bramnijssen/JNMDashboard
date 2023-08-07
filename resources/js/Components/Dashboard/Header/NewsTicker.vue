@@ -17,11 +17,11 @@ function getNewsItems() {
 </script>
 
 <template>
-    <div class="bg-white py-2 text-2xl overflow-hidden">
+    <div class="bg-white py-3 overflow-hidden">
         <div class="w-max flex">
             <div v-for="i in 2" :key="i" class="flex scroller">
                 <div v-for="item in items" class="flex items-center">
-                    <a :href="item.link" target="_blank" class="underline">{{ item.title }}</a>
+                    <a :href="item.link" target="_blank" class="text-2xl underline">{{ item.title }}</a>
                     <img src="@/Assets/nos-logo.svg" class="mx-4 h-6" />
                 </div>
             </div>
