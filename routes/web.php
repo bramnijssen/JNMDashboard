@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\LinkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,7 @@ Route::inertia('/', 'Dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('activities', ActivityController::class);
-    Route::inertia('links', 'Links')->name('links');
+    Route::resource('links', LinkController::class);
 });
 
 require __DIR__.'/auth.php';

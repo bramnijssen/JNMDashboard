@@ -16,7 +16,7 @@ import AuthHeader from "@/Components/AuthHeader.vue";
                         <i class="fa-solid fa-calendar-days mr-3"></i>
                         Activiteiten
                     </BreezeNavLink>
-                    <BreezeNavLink :href="route('links')" :active="route().current('links.*')">
+                    <BreezeNavLink :href="route('links.index')" :active="route().current('links.*')">
                         <i class="fa-solid fa-arrow-up-right-from-square mr-3"></i>
                         Links
                     </BreezeNavLink>
