@@ -4,19 +4,21 @@ import PrimaryButton from "@/Components/PrimaryButton.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Head } from "@inertiajs/vue3";
 import LinkToggle from "../../Components/Links/LinkToggle.vue";
+import axios from "axios";
 
-let draggable;
-const jnmActive = ref(true);
 const draggableClasses = ["border-2", "border-dashed", "!bg-transparent", "text-transparent"];
+let draggable = null;
 
+const jnmActive = ref(true);
 const props = defineProps({
     links: Array,
 });
 
 const dashboardLinks = computed(() =>
-    props.links.filter((link) => link.dashboard == (jnmActive.value ? "jnm" : "rental"))
+    props.links
+        .filter((link) => link.dashboard == (jnmActive.value ? "jnm" : "rental"))
+        .sort((a, b) => a.position - b.position)
 );
-const dashboardLinksLength = computed(() => dashboardLinks.value.length);
 
 function style(hex) {
     return `background-color: ${hex}`;
@@ -30,6 +32,14 @@ function dragStart(e) {
 
 function dragEnd() {
     draggable.classList.remove(...draggableClasses);
+    Array.from(draggable.parentElement.children).forEach((element, index) => {
+        const link = props.links.find((link) => link.id == element.getAttribute("data-id"));
+        if (link.position != index) {
+            axios.patch(`/links/${link.id}`, {
+                position: index,
+            });
+        }
+    });
     draggable = null;
 }
 
@@ -52,10 +62,11 @@ function dragOver(e) {
         <LinkToggle @toggle="(e) => (jnmActive = e)"></LinkToggle>
 
         <div class="p-6 border border-t-0 border-gray-500 rounded-b-lg text-xl text-white flex flex-col gap-12">
-            <ul v-if="dashboardLinksLength" class="flex flex-col gap-4">
+            <ul v-if="dashboardLinks.length" class="flex flex-col gap-4">
                 <li
                     v-for="link in dashboardLinks"
                     :key="link.id"
+                    :data-id="link.id"
                     :style="style(link.hex)"
                     class="min-w-full px-6 py-3 rounded-lg border-gray-500 cursor-grab flex gap-6 items-center"
                     draggable="true"

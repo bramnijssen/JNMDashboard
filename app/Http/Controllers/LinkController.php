@@ -55,7 +55,8 @@ class LinkController extends Controller
      */
     public function update(Request $request, Link $link)
     {
-        //
+        $link->fill($request->all());
+        $link->save();
     }
 
     /**

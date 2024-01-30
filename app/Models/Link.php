@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 class Link extends Model
 {
     use HasFactory, HasUuids;
+
+    protected $fillable = ['position'];
 }
