@@ -19,7 +19,9 @@ Route::inertia('/', 'Dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('activities', ActivityController::class);
-    Route::resource('links', LinkController::class);
+
+    Route::resource('links', LinkController::class)->except(['create']);
+    Route::get('links/create/{dashboard}', [LinkController::class, 'create'])->name('links.create');
 });
 
 require __DIR__.'/auth.php';

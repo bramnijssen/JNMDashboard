@@ -21,9 +21,11 @@ class LinkController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $dashboard)
     {
-        //
+        return Inertia::render('Links/Create', [
+            'dashboard' => $dashboard,
+        ]);
     }
 
     /**
@@ -31,7 +33,18 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dashboard = $request->input('dashboard');
+        $links = Link::query()->where('dashboard', $dashboard)->get();
+
+        $link = new Link();
+        $link->title = $request->input('title');
+        $link->url = $request->input('url');
+        $link->hex = $request->input('hex');
+        $link->position = $links->max('position') ?? 0;
+        $link->dashboard = $dashboard;
+        $link->save();
+
+        return redirect()->route('links.index');
     }
 
     /**

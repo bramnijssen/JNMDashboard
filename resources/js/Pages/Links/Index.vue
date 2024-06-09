@@ -82,7 +82,7 @@ function dragOver(e) {
             <span v-else class="italic text-black">Er zijn geen links</span>
 
             <div class="flex justify-end">
-                <a :href="route('links.create')"
+                <a :href="route('links.create', jnmActive ? 'jnm' : 'rental')"
                     ><PrimaryButton><i class="fa-solid fa-plus mr-3"></i>Nieuwe link</PrimaryButton></a
                 >
             </div>
