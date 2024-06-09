@@ -53,6 +53,14 @@ function dragOver(e) {
         );
     }
 }
+
+function deleteLink(link) {
+    if (confirm(`Weet je zeker dat je de link '${link.title}' wilt verwijderen?`)) {
+        axios.delete(`/links/${link.id}`);
+        const index = props.links.indexOf(link);
+        if (index > -1) props.links.splice(index, 1);
+    }
+}
 </script>
 
 <template>
@@ -76,7 +84,10 @@ function dragOver(e) {
                 >
                     <i class="fa-solid fa-grip-vertical"></i>
                     <span class="flex-1">{{ link.title }}</span>
-                    <button class="fa-solid fa-trash-can hover:scale-90 duration-300"></button>
+                    <button
+                        @click="deleteLink(link)"
+                        class="fa-solid fa-trash-can hover:scale-90 duration-300"
+                    ></button>
                 </li>
             </ul>
             <span v-else class="italic text-black">Er zijn geen links</span>
