@@ -31,12 +31,12 @@ function getPosterURL(activity) {
 </script>
 
 <template>
-    <div v-if="activities.length" class="h-full overflow-hidden">
-        <div class="h-full flex carousel transition duration-1000">
+    <div v-if="activities.length" class="h-full overflow-hidden flex">
+        <div class="w-0 flex-1 flex carousel transition duration-1000">
             <div v-for="activity in activities" :key="activity.id" class="flex gap-6 min-w-full">
                 <object :data="getPosterURL(activity)" class="basis-2/5" type="application/pdf"></object>
                 <div class="flex-1">
-                    <div class="text-6xl font-bold">{{ activity.title }}</div>
+                    <div class="text-5xl font-bold">{{ activity.title }}</div>
                     <hr class="my-4 border border-black" />
                     <pre class="font-sans text-2xl">{{ activity.description }}</pre>
                 </div>
