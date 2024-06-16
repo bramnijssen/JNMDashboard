@@ -31,13 +31,12 @@ function getPosterURL(activity) {
 </script>
 
 <template>
-    <div v-if="activities.length" class="h-full overflow-hidden flex">
-        <div class="w-0 flex-1 flex carousel transition duration-1000">
+    <div v-if="activities.length" class="h-full overflow-hidden">
+        <div class="h-full flex carousel transition duration-1000">
             <div v-for="activity in activities" :key="activity.id" class="flex gap-6 min-w-full">
-                <object :data="getPosterURL(activity)" class="basis-2/5" type="application/pdf"></object>
+                <object :data="getPosterURL(activity)" class="w-2/5" type="application/pdf"></object>
                 <div class="flex-1">
-                    <div class="text-5xl font-bold">{{ activity.title }}</div>
-                    <hr class="my-4 border border-black" />
+                    <div class="text-5xl font-bold pb-4 mb-4 border-b-2 border-black">{{ activity.title }}</div>
                     <pre class="font-sans text-2xl">{{ activity.description }}</pre>
                 </div>
             </div>
@@ -53,3 +52,16 @@ function getPosterURL(activity) {
     transform: v-bind(translate);
 }
 </style>
+
+<!-- <div class="flex w-screen">
+
+        <div class="flex w-3/4 overflow-hidden">
+            <div class="flex-none w-full bg-aqua">a</div>
+            <div class="flex-none w-full bg-darkblue">b</div>
+            <div class="flex-none w-full bg-green-500">c</div>
+        </div>
+
+        <div class="w-1/4 bg-pink-500">
+            side
+        </div>
+    </div> -->

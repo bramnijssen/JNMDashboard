@@ -46,7 +46,7 @@ function submit() {
             </div>
 
             <div class="flex justify-between gap-12">
-                <div class="basis-1/6">
+                <div class="w-1/6">
                     <InputLabel value="Voorbeeld" />
                     <a
                         class="min-h-12 px-6 py-3 text-2xl text-white rounded-tl-xl rounded-br-xl flex gap-2 items-center"
