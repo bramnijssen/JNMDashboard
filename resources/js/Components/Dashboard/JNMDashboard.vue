@@ -52,16 +52,3 @@ function getPosterURL(activity) {
     transform: v-bind(translate);
 }
 </style>
-
-<!-- <div class="flex w-screen">
-
-        <div class="flex w-3/4 overflow-hidden">
-            <div class="flex-none w-full bg-aqua">a</div>
-            <div class="flex-none w-full bg-darkblue">b</div>
-            <div class="flex-none w-full bg-green-500">c</div>
-        </div>
-
-        <div class="w-1/4 bg-pink-500">
-            side
-        </div>
-    </div> -->
