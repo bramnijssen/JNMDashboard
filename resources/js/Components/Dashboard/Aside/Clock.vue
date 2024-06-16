@@ -1,7 +1,7 @@
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 
-const weekday = ref(null);
+const weekday = ref();
 const time = ref();
 const date = ref();
 
