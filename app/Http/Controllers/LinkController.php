@@ -79,4 +79,9 @@ class LinkController extends Controller
     {
         $link->delete();
     }
+
+    public function getAllLinks()
+    {
+        return response()->json(Link::all());
+    }
 }

@@ -3,7 +3,8 @@ import { ref } from "vue";
 import DashboardHeader from "@/Components/Dashboard/Header/DashboardHeader.vue";
 import { Head } from "@inertiajs/vue3";
 import JNMDashboard from "@/Components/Dashboard/JNMDashboard.vue";
-import Clock from "@/Components/Dashboard/Clock.vue";
+import Clock from "@/Components/Dashboard/Aside/Clock.vue";
+import Links from "@/Components/Dashboard/Aside/Links.vue";
 
 const jnmActive = ref(true);
 </script>
@@ -23,11 +24,13 @@ const jnmActive = ref(true);
                 </div>
             </div>
 
-            <div class="w-1/5 flex flex-col">
-                <h1 class="text-5xl text-center">Handige links</h1>
-                <div class="flex-1 py-4 my-4 border-y-2 border-black"></div>
+            <aside class="w-1/6 flex flex-col">
+                <h1 class="text-5xl text-center">Links</h1>
+                <div class="h-0 flex-auto overflow-y-auto py-4 my-4 border-y-2 border-black">
+                    <Links :dashboard="jnmActive ? 'jnm' : 'rental'" />
+                </div>
                 <Clock class="h-1/6 flex items-center justify-center" />
-            </div>
+            </aside>
         </div>
     </div>
 </template>
