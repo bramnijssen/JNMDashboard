@@ -5,6 +5,7 @@ import { Head } from "@inertiajs/vue3";
 import JNMDashboard from "@/Components/Dashboard/JNMDashboard.vue";
 import Clock from "@/Components/Dashboard/Aside/Clock.vue";
 import Links from "@/Components/Dashboard/Aside/Links.vue";
+import RentalDashboard from "@/Components/Dashboard/RentalDashboard.vue";
 
 const jnmActive = ref(true);
 </script>
@@ -18,10 +19,7 @@ const jnmActive = ref(true);
         <div class="flex-1 flex m-6">
             <div class="flex-1 mr-6 pr-6 border-r-2 border-black">
                 <JNMDashboard v-if="jnmActive" />
-
-                <div v-else>
-                    <p>Verhuur</p>
-                </div>
+                <RentalDashboard v-else />
             </div>
 
             <aside class="w-1/6 flex flex-col">
