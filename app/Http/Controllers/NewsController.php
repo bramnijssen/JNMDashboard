@@ -8,8 +8,8 @@ class NewsController extends Controller
     {
         $url = 'https://feeds.nos.nl/nosnieuwsalgemeen';
         $xml = simplexml_load_file($url, null, LIBXML_NOCDATA);
-        $news = json_decode(json_encode($xml->channel), true);
+        $news = json_decode(json_encode($xml), true);
 
-        return response()->json($news['item']);
+        return response()->json($news['channel']['item']);
     }
 }
