@@ -13,7 +13,7 @@ jobs:
       - name: Install dependencies
         run: |
           docker compose run php composer install --no-dev
-          docker compose run node npm install --omit=dev
+          docker compose run node npm install
 
       - name: Build JS
         run: docker compose run node npm run build
