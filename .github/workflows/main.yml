@@ -1,0 +1,10 @@
+on:
+  push:
+    branches:
+      - action
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: docker compose
