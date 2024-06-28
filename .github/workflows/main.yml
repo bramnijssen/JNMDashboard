@@ -26,4 +26,4 @@ jobs:
           password: ${{ secrets.SFTP_PASS }}
           port: ${{ secrets.SFTP_PORT }}
           protocol: ftps
-          server-dir: dashboard
+          server-dir: ./dashboard/
