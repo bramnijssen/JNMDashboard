@@ -8,18 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Install dependencies
-      - run: docker compose run php composer install --no-dev
-      - run: docker compose run node npm install --omit=dev
+        run: |
+          docker compose run php composer install --no-dev
+          docker compose run node npm install --omit=dev
 
       - name: Build JS
-      - run: docker compose run node npm run build
+        run: docker compose run node npm run build
 
       - name: Deploy
-      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      - with:
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
           server: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
