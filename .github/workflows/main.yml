@@ -10,20 +10,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # - name: Install dependencies
-      #   run: |
-      #     docker compose run php composer install --no-dev
-      #     docker compose run node npm install
+      - name: Install dependencies
+        run: |
+          docker compose run php composer install --no-dev
+          docker compose run node npm install
 
-      # - name: Build JS
-      #   run: docker compose run node npm run build
+      - name: Build JS
+        run: docker compose run node npm run build
 
       - name: Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASS }}
-          port: ${{ secrets.SFTP_PORT }}
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
           server-dir: dashboard/
-          log-level: verbose
