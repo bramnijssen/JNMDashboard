@@ -24,5 +24,6 @@ jobs:
           server: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
+          port: ${{ secrets.SFTP_PORT }}
           server-dir: dashboard/
           log-level: verbose
