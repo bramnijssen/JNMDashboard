@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import RentalInfoBlock from "@/Components/Dashboard/RentalInfoBlock.vue";
 import Modal from "../Modal.vue";
 
