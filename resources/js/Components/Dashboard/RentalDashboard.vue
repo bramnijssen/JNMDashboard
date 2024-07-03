@@ -1,5 +1,12 @@
 <script setup>
 import RentalInfoBlock from "@/Components/Dashboard/RentalInfoBlock.vue";
+import Modal from "../Modal.vue";
+
+const modalActive = ref(false);
+
+function toggleModal() {
+    modalActive.value = !modalActive.value;
+}
 </script>
 
 <template>
@@ -11,9 +18,12 @@ import RentalInfoBlock from "@/Components/Dashboard/RentalInfoBlock.vue";
                     Of je nu op zoek bent naar ontspanning, avontuur, of een combinatie van beide, Noord-Limburg heeft
                     alles in huis om aan al jouw wensen te voldoen. Ga via onderstaande knop op zoek naar inspiratie!
                 </p>
-                <a href="https://www.visitnoordlimburg.nl/nl" target="_blank" class="self-center"
-                    ><img src="@/Assets/visit-noord-limburg.png"
-                /></a>
+                <div @click="toggleModal" class="self-center">
+                    <img src="@/Assets/visit-noord-limburg.png" />
+                </div>
+                <Modal @close="toggleModal" :modal-active="modalActive">
+                    <iframe src="https://www.visitnoordlimburg.nl/nl" class="h-full w-full"></iframe>
+                </Modal>
             </div>
         </div>
 
